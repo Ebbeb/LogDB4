@@ -20,8 +20,8 @@ def search():
     # Kig på om der skal valideres på den overordnede form eller de specifikke værdier i hver variable
 
     form = SearchForm()
-    flash(u'test')
     if form.validate_on_submit():
+        flash("Successful")
         return redirect(url_for('data'))
     # if request.method == 'POST' and form.validate():
     #     search = searchForm(searchForm.DataRequired)
@@ -35,7 +35,7 @@ def search():
 @app.route('/data')
 def data():
 
-
+#TODO data.html skal omstruktureres og der skal laves en properties fil til den
     return render_template('data.html',
                            dataTitle='Dataoversigt')
 if __name__ == '__main__':

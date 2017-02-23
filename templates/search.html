@@ -8,6 +8,7 @@
 {% block content %}
 <body>
 		<form action="/search" method="GET, POST">
+            {{ form.hidden_tag() }}
             <h2>{{ form.facilityTitle}}</h2>
             <select>
 				<option>1</option>
@@ -18,13 +19,16 @@
 			</select><br></br>
             <h2>{{ form.roadTitle }}</h2>
             <p>{{ form.roadStart }} {{ form.roadEnd }}</p>
+{#            <br></br>#}
+{#            <h2> {{ form.timeTitle }}</h2>#}
+{#            <p>{{ form.timeStart }} {{ form.timeEnd }}</p>#}
             <br></br>
-            <h2> {{ form.timeTitle }}</h2>
-            <p>{{ form.timeStart }} {{ form.timeEnd }}</p>
-            <br></br>
+            {{ form.csrf_token }}
+            {{ form.name }}
             <input type="submit" name="submit" value="Søg">
 {#            {{ form.submit }}#}
 			<h3>{{facility_title}}</h3>
+
 
 {##}
 {##}
