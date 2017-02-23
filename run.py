@@ -6,6 +6,7 @@ from searchForm import SearchForm
 app = Flask(__name__)
 app.config.from_object('config')
 
+#TODO Hvad skal der stå i indexet - skal der være et index?
 @app.route('/')
 @app.route('/index')
 def index():
@@ -30,7 +31,7 @@ def search():
     #TODO Når der søges og noget går galt, skal inputs gemmes
     return render_template('search.html', form=form)
 
-
+#TODO Implementér SQL søgning og datavisning
 @app.route('/data')
 def data():
 
