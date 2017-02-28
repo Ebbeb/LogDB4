@@ -7,29 +7,35 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
-		<form action="/search" method="GET, POST">
-            <h2>{{ form.facilityTitle}}</h2>
-            <select>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select><br></br>
-            <h2>{{ form.roadTitle }}</h2>
+		<form action="/search" method="POST" >
+            {{ form.csrf_token }}
+{#            <h2>{{ form.facilityTitle}}</h2>#}
+{#            <select>#}
+{#				<option>1</option>#}
+{#				<option>2</option>#}
+{#				<option>3</option>#}
+{#				<option>4</option>#}
+{#				<option>5</option>#}
+{#			</select><br></br>#}
+            <h1>Der søges på: fartændringer over strækning</h1>
+            <br></br>
+            <h4>{{ form.roadTitle }}</h4>
             <p>{{ form.roadStart }} {{ form.roadEnd }}</p>
             <br></br>
-            <h2> {{ form.timeTitle }}</h2>
+            <h4> {{ form.timeTitle }}</h4>
             <p>{{ form.timeStart }} {{ form.timeEnd }}</p>
             <br></br>
+            {{ form.csrf_token }}
+            {{ form.name }}
             <input type="submit" name="submit" value="Søg">
 {#            {{ form.submit }}#}
 			<h3>{{facility_title}}</h3>
 
+
 {##}
 {##}
 {#			<h3>{{road_title}}</h3>#}
-{#			<input type="text" name="roadStart" placeholder="Indtast start-kilometrering">#}
+{#			<input type="text" name={{ roadStart }} placeholder="Indtast start-kilometrering">#}
 {#			<input type="text" name="roadEnd" placeholder="Indtast slut-kilometrering"><br></br>#}
 {##}
 {#			<h3>{{timeframe_title}}</h3>#}
