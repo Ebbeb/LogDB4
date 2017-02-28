@@ -7,16 +7,16 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
-		<form action="/search" method="GET, POST">
-            {{ form.hidden_tag() }}
-            <h2>{{ form.facilityTitle}}</h2>
-            <select>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select><br></br>
+		<form action="/search" method="POST" >
+            {{ form.csrf_token }}
+{#            <h2>{{ form.facilityTitle}}</h2>#}
+{#            <select>#}
+{#				<option>1</option>#}
+{#				<option>2</option>#}
+{#				<option>3</option>#}
+{#				<option>4</option>#}
+{#				<option>5</option>#}
+{#			</select><br></br>#}
             <h2>{{ form.roadTitle }}</h2>
             <p>{{ form.roadStart }} {{ form.roadEnd }}</p>
 {#            <br></br>#}
@@ -33,7 +33,7 @@
 {##}
 {##}
 {#			<h3>{{road_title}}</h3>#}
-{#			<input type="text" name="roadStart" placeholder="Indtast start-kilometrering">#}
+{#			<input type="text" name={{ roadStart }} placeholder="Indtast start-kilometrering">#}
 {#			<input type="text" name="roadEnd" placeholder="Indtast slut-kilometrering"><br></br>#}
 {##}
 {#			<h3>{{timeframe_title}}</h3>#}
