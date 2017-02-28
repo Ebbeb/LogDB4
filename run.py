@@ -3,6 +3,7 @@ from flask import render_template
 from searchForm import SearchForm
 from flask_wtf.csrf import CSRFProtect
 import connect
+import cx_Oracle
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -11,7 +12,7 @@ csrf.init_app(app)
 with app.app_context():
 
 
-
+    #TODO Routes og views skal deles op i hver sin python fil
     #TODO Hvad skal der stå i indexet - skal der være et index?
     @app.route('/')
     @app.route('/index')
@@ -70,15 +71,20 @@ with app.app_context():
         return 0
 
     #TODO Implementér SQL søgning og datavisning
+    #Der kan søges på hardcodede SQL statements
     @app.route('/data')
     def data(roadstart, roadend):
+        søgeord = "'StatusBrightness'"
+        #TODO result skal hentes som et objekt der kan referes til
         conn = connect.Connect()
-        result = conn.searchdb()
+        result = conn.searchdb(søgeord) #skal returnere et table
+
         #TODO data.html skal omstruktureres og der skal laves en properties fil til den
         return render_template('data.html',
-                               roadStart=roadstart,
-                               roadEnd=roadend,
-                               result="Antallet af StatusBrightness: " + str(result))
+                               # roadStart=roadstart,
+                               # roadEnd=roadend,
+                               result=result,
+                               beskrivelse="Du har søgt på '" + søgeord + "':")
     if __name__ == '__main__':
         app.run(debug=True)
 

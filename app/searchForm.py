@@ -8,13 +8,13 @@ class SearchForm(Form):
     facilityTitle = "Vælg anlæg"
     #TODO Array af anlæg skal laves
 
-    #TODO Opret alle form variabler
-    roadTitle = "Vælg vejstrækning"
-    roadStart = IntegerField(_name='roadStart', validators=[DataRequired()])
-    roadEnd = IntegerField(_name='roadEnd', validators=[DataRequired()])
+    #TODO Der skal oprettes placeholder tekst i alle input felter
+    roadTitle = "Vælg start- og slutpunkt på vejstrækningen:"
+    roadStart = IntegerField(_name='roadStart', validators=[DataRequired()], render_kw={"placeholder": "0000000"})
+    roadEnd = IntegerField(_name='roadEnd', validators=[DataRequired()], render_kw={"placeholder": "0000000"})
 
-    timeTitle = "Vælg tidsvindue"
-    timeStart = DateTimeField(_name='timeStart', validators=[DataRequired()])
-    timeEnd = DateTimeField(_name='timeEnd', validators=[DataRequired()])
+    timeTitle = "Vælg start- og sluttidspunkt for tidsvinduet:"
+    timeStart = DateTimeField(_name='timeStart', validators=[DataRequired()], render_kw={"placeholder": "YY-MM-DD HH:MM:SS"})
+    timeEnd = DateTimeField(_name='timeEnd', validators=[DataRequired()], render_kw={"placeholder": "YY-MM-DD HH:MM:SS"})
     #TODO Find ud af hvorfor submit er stylet forkert
     submit = SubmitField(_name='submit')

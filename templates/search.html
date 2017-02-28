@@ -17,11 +17,13 @@
 {#				<option>4</option>#}
 {#				<option>5</option>#}
 {#			</select><br></br>#}
-            <h2>{{ form.roadTitle }}</h2>
+            <h1>Der søges på: fartændringer over strækning</h1>
+            <br></br>
+            <h4>{{ form.roadTitle }}</h4>
             <p>{{ form.roadStart }} {{ form.roadEnd }}</p>
-{#            <br></br>#}
-{#            <h2> {{ form.timeTitle }}</h2>#}
-{#            <p>{{ form.timeStart }} {{ form.timeEnd }}</p>#}
+            <br></br>
+            <h4> {{ form.timeTitle }}</h4>
+            <p>{{ form.timeStart }} {{ form.timeEnd }}</p>
             <br></br>
             {{ form.csrf_token }}
             {{ form.name }}
